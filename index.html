@@ -1,13 +1,29 @@
 <!DOCTYPE html>
 <html>
+<head>
+    <title>Real-Time Server Monitor</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; padding-top: 50px; }
+        #timestamp { font-size: 2em; color: #333; }
+    </style>
+</head>
 <body>
+    <h1>Current Server Time</h1>
+    <div id="timestamp">Loading...</div>
 
-<h1>This is heading 1</h1>
-<h2>This is heading 2</h2>
-<h3>This is heading 3</h3>
-<h4>This is heading 4</h4>
-<h5>This is heading 5</h5>
-<h6>This is heading 6</h6>
-
+    <script>
+        // JavaScript to update the time display every second
+        function updateTime() {
+            var now = new Date();
+            var hours = now.getHours().toString().padStart(2, '0');
+            var minutes = now.getMinutes().toString().padStart(2, '0');
+            var seconds = now.getSeconds().toString().padStart(2, '0');
+            document.getElementById('timestamp').textContent = hours + ':' + minutes + ':' + seconds;
+        }
+        // Initial call to display time immediately
+        updateTime();
+        // Update the time every 1000ms (1 second)
+        setInterval(updateTime, 1000);
+    </script>
 </body>
 </html>
